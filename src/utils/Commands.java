@@ -17,7 +17,8 @@ public final class Commands {
 	//#################################################
 
 	// COMMANDS FROM SERVER TO CLIENT 
-	public static final String GIVE_USERNAME = SERVER_COMMAND_PREFIX + "300";
+	public static final String SERVER_PREFIX = "SERVER";
+	public static final String GIVE_USERNAME = "GREETINGS";
 	
 	// SERVER COMMANDS THAT FORCE ALTERATION OF CLIENT 
 	
@@ -53,6 +54,15 @@ public final class Commands {
 	public static final String SERVER_FULL = SERVER_COMMAND_PREFIX + "002_";
 
 	// COMMANDS FROM CLIENT USER TO SERVER (START WITH "/")
+	
+	public static final String LOGIN = "LOGIN";
+	public static final String LOGIN_FAIL = "LOGIN FAIL";
+	public static final String LOGIN_SUCCESS = "LOGIN SUCCESS";
+	
+	public static final String START = "START";
+	public static final String END = "END";
+	
+	//public static final String QUIT = "QUIT";
 	/**
 	 * show the conditions for the login
 	 */
@@ -79,7 +89,7 @@ public final class Commands {
 	 * give a list of all active users
 	 * this is also a Server Admin Command
 	 */
-	public static final String USERS = "/users";
+	public static final String USERS = "USERS";
 	/**
 	 * give a list of all active rooms
 	 */
@@ -93,7 +103,7 @@ public final class Commands {
 	/**
 	 * quit the chat session and terminates all streams and socket connection
 	 */
-	public static final String QUIT = "/quit";
+	public static final String QUIT = "QUIT";
 	
 	// ADDITIONAL SERVER ADMIN BEFEHLE
 	

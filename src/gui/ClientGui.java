@@ -8,6 +8,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -191,12 +194,27 @@ public ClientGui(String name, String address, int port) {
 	
 	//sendbutton invoked
 	private void send(){
+		List<String> userCommands = new ArrayList<>(Arrays.asList("LOGIN", "LIST", "JOIN", 
+				"QUIT", "USERS", "CREATE", "LEAVE", "GET"));
 		String message = txtMessage.getText();
 		
 		if(!message.equals("")){
 			//console(name + ": " + txtMessage.getText());
 			
-			client.write(message);
+			boolean command = false;
+			
+			for(String s : userCommands) {
+				if(message.startsWith(s)) {
+					command = true;
+				}
+			}
+			
+			if(!command) {
+				client.write(System.currentTimeMillis() + " SEND " + message);
+			}else {
+				client.write(System.currentTimeMillis() + " " + message);
+			}
+			
 			
 			txtMessage.setText("");
 			txtMessage.requestFocusInWindow();
